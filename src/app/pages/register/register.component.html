@@ -1,0 +1,43 @@
+<form [formGroup]="registroForm" (ngSubmit)="registrarEmpleado()">
+    <label>Nombre:</label>
+    <input formControlName="firstName" />
+    <div *ngIf="registroForm.get('firstName')?.invalid && registroForm.get('firstName')?.touched">
+      El nombre no puede contener números.
+    </div>
+  
+    <label>Apellido Paterno:</label>
+    <input formControlName="paternalSurname" />
+    <div *ngIf="registroForm.get('paternalSurname')?.invalid && registroForm.get('paternalSurname')?.touched">
+      El apellido paterno no puede contener números.
+    </div>
+  
+    <label>Apellido Materno:</label>
+    <input formControlName="maternalSurname" />
+    <div *ngIf="registroForm.get('maternalSurname')?.invalid && registroForm.get('maternalSurname')?.touched">
+      El apellido materno no puede contener números.
+    </div>
+  
+    <label>CURP:</label>
+    <input formControlName="curp" />
+    <div *ngIf="registroForm.get('curp')?.invalid && registroForm.get('curp')?.touched">
+      El CURP debe tener un formato válido.
+    </div>
+  
+    <label>Teléfono:</label>
+    <input formControlName="phone" />
+    <div *ngIf="registroForm.get('phone')?.invalid && registroForm.get('phone')?.touched">
+      El teléfono debe ser de 10 dígitos.
+    </div>
+  
+    <label>Sexo:</label>
+    <select formControlName="sex">
+      <option value="" disabled>Seleccione</option>
+      <option value="Masculino">Masculino</option>
+      <option value="Femenino">Femenino</option>
+    </select>
+    <div *ngIf="registroForm.get('sex')?.invalid && registroForm.get('sex')?.touched">
+      Seleccione un sexo.
+    </div>
+  
+    <button type="submit" [disabled]="registroForm.invalid">Registrar</button>
+  </form>

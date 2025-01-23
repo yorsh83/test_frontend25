@@ -1,0 +1,23 @@
+<table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>CURP</th>
+        <th>Teléfono</th>
+        <th>Sexo</th>
+        <th>Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empleado of employees">
+        <td>{{ empleado.firstName }} {{ empleado.paternalSurname }} {{ empleado.maternalSurname }}</td>
+        <td>{{ empleado.curp }}</td>
+        <td>{{ empleado.phone }}</td>
+        <td>{{ empleado.sex }}</td>
+        <td>
+          <button (click)="delete(empleado.idEmployee)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
